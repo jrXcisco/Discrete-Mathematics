@@ -1,0 +1,18 @@
+
+
+#Note : please take care of indentation while pasting it can throw an error so please take care of it 
+for more you can email me d2009001@gmail.com
+def change(amount):
+  
+  amounts = [[] for i in range(1001)]
+  amounts[5] = [5]
+  amounts[7] = [7]
+
+  for i in range(8, 1001):
+    if amounts[i-5] != []:
+      amounts[i] = amounts[i-5] + [5]
+    elif amounts[i-7] != []:
+      amounts[i] = amounts[i-7] + [7]
+  
+  return(amounts[amount])
+

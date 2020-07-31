@@ -1,0 +1,3 @@
+Method to calculate the negative modulus :
+Adding a thumb rule to all the answers above: negative number modulo k = k minus positive number modulo k. 
+To find (−n)%k just find k−(n%k). Ex: (−144)%5=5−(144%5)=5−(4)=1.

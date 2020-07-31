@@ -1,0 +1,61 @@
+def extended_gcd(a, b):
+  assert a >= b and b >= 0 and a + b > 0
+
+  if b == 0:
+    d, x, y = a, 1, 0
+  else:
+    (d, p, q) = extended_gcd(b, a % b)
+    x = q
+    y = p - q * (a // b)
+
+  assert a % d == 0 and b % d == 0
+  assert d == a * x + b * y
+  return (d, x, y)
+
+extended_gcd(10,6)
+extended_gcd(7,5)
+extended_gcd(391,299)
+extended_gcd(239,201)
+
+
+code in c++_:source(geek for geek)
+
+
+// C++ program to demonstrate working of 
+// extended Euclidean Algorithm 
+#include <bits/stdc++.h> 
+using namespace std; 
+
+// Function for extended Euclidean Algorithm 
+int gcdExtended(int a, int b, int *x, int *y) 
+{ 
+	// Base Case 
+	if (a == 0) 
+	{ 
+		*x = 0; 
+		*y = 1; 
+		return b; 
+	} 
+
+	int x1, y1; // To store results of recursive call 
+	int gcd = gcdExtended(b%a, a, &x1, &y1); 
+
+	// Update x and y using results of 
+	// recursive call 
+	*x = y1 - (b/a) * x1; 
+	*y = x1; 
+
+	return gcd; 
+} 
+
+// Driver Code 
+int main() 
+{ 
+	int x, y, a = 35, b = 15; 
+	int g = gcdExtended(a, b, &x, &y); 
+	cout << "GCD(" << a << ", " << b 
+		<< ") = " << g << endl; 
+	return 0; 
+} 
+
+

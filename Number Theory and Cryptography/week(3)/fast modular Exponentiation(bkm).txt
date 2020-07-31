@@ -1,0 +1,9 @@
+def FastModularExponentiation(b, k, m):
+  bee=[0]*(k+1)
+  bee[0] = b%m
+  for i in range(k+1):
+    if i>0:
+      bee[i] = (bee[i-1]*bee[i-1])%m
+    else:
+      continue
+  return bee[k]

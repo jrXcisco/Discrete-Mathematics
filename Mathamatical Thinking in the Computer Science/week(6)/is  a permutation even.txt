@@ -1,0 +1,20 @@
+def transpose(p):
+  n = len(p)
+  res = 0
+  for i in range(n):
+    if i != p[i]:
+      for j in range(i+1, n):
+        if p[j] == i:
+          res += j-i
+          for k in range(j, i-1, -1):
+            p[k] = p[k-1]
+          break
+  return res  
+  
+def is_even(p):
+  if transpose(p) % 2 == 0:
+    return True
+  return False
+  
+  is_even([0,3,2,4,5,6,7,1,9,8])
+  
